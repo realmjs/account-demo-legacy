@@ -1,0 +1,40 @@
+{
+  "name": "@realmjs/account-demo",
+  "version": "1.0.0",
+  "description": "Demonstrate the usage of account-restapi and account-client",
+  "main": "index.js",
+  "scripts": {
+    "start:server": "node server/server.js",
+    "start:client": "webpack serve --config webpack.dev.config.js",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/realmjs/account-demo.git"
+  },
+  "author": "Duong Nguyen (duongtdn)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/realmjs/account-demo/issues"
+  },
+  "homepage": "https://github.com/realmjs/account-demo#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "webpack": "^5.17.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@realmjs/account-client": "^1.3.0",
+    "@realmjs/account-restapi": "2.2.0"
+  }
+}
