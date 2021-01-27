@@ -36,8 +36,7 @@ function updateUserInfo(user) {
 
 function createCallbackFn(name) {
   return function(err, user) {
-    const msg = err ? `without error.` : `with err: ${err}`;
-    console.log(`${name.toUpperCase()} callback is called ${err}`);
-    console.log(`User:  ${JSON.stringify(user)}`)
+    const msg = err ? `with err: ${err}` : `without error.`;
+    console.log(`${name.toUpperCase()} callback is called ${msg}. \nUser:  ${JSON.stringify(user)}`);
   }
 }
