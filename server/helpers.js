@@ -66,12 +66,13 @@ function sendEmail ({recipient, template, data}) {
   return new Promise( (resolve, reject) => {
     console.log(`EMAIL: -----------------------------------------------------------`);
     console.log(`--> Sent email to:`);
-    recipient.forEach( ({name, email}) => {
-      console.log(`           + ${name}[${email}]`);
+    recipient.forEach( ({name, address}) => {
+      console.log(`           + ${name}[${address}]`);
     })
-    console.log(`--> Email Template: ${template}`);
-    console.log('--> Data:');
-    console.log(data)
+    console.log(`--> Email Template: ${template}\n`);
+    console.log(`Dear ${data.customer},`);
+    console.log(`Here is the link to reset your password`);
+    console.log(`${data.endpoint}&t=${data.token}`)
     console.log(`-----------------------------------------------------------------`);
     resolve();
   });

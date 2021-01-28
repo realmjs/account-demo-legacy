@@ -7,7 +7,7 @@ const USERS = [
     uid: 'tester',
     username: 'tester@localhost.io',
     realms: { 'public': { role: 'member' } },
-    profile: { displayName: 'Tester', email: ['tester@localhost.io'],},
+    profile: { displayName: 'Tester', fullName: 'Tester', email: ['tester@localhost.io'],},
     credentials: { password: hashPassword('123') }
   },
 ];
@@ -48,7 +48,7 @@ function insertUser(user) {
 
 function updateUser({uid}, updater) {
   return new Promise((resolve, reject) => {
-    const user = USERS.find(u => u.username === uid);
+    const user = USERS.find(u => u.uid === uid);
     if (user) {
       for (let prop in updater) {
         user[prop] = updater[prop];
