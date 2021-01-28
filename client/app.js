@@ -16,7 +16,7 @@ acc
   .on('unauthenticated', () => { console.log('--> unauthenticated'); updateUserInfo(undefined); })
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  const btn = ['sso', 'lso', 'signup', 'signin', 'signout'];
+  const btn = ['sso', 'signup', 'signin', 'signout'];
   btn.forEach( name => done[name] = createCallbackFn(name));
   btn.forEach( fn => $(fn).onclick = function() {
     acc[fn](done[fn])
