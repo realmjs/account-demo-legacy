@@ -18,13 +18,15 @@ app.use('/',
 app.use('/assets', express.static('./node_modules/@realmjs/account-restapi/build'));
 app.use('/assets', express.static('./server/assets'));
 
-app.listen(3100, function(err) {
+const PORT = process.argv[2] && parseInt(process.argv[2]) || 3100;
+
+app.listen(PORT, function(err) {
   if (err) {
     console.log('Failed to start server!!!');
     console.log(err);
   } else {
     console.log('------------------------------------------------------------');
-    console.log('- @realmjs/account-restapi server is running at port 3100');
+    console.log(`- @realmjs/account-restapi server is running at port ${PORT}`);
     console.log('------------------------------------------------------------');
   }
 });
