@@ -1,6 +1,6 @@
 "use strict"
 
-const done = {};
+const defer = {};
 
 import AccountClient from '@realmjs/account-client';
 
@@ -17,9 +17,9 @@ acc
 
 document.addEventListener("DOMContentLoaded", (event) => {
   const btn = ['sso', 'signup', 'signin', 'signout'];
-  btn.forEach( name => done[name] = createCallbackFn(name));
+  btn.forEach( name => defer[name] = createDeferFunc(name));
   btn.forEach( fn => $(fn).onclick = function() {
-    acc[fn](done[fn])
+    acc[fn](defer[fn])
     .then(user => console.log(`${fn.toUpperCase()} Promise Resolve. \nUser: ${JSON.stringify(user)}`))
     .catch( err =>  console.log(`${fn.toUpperCase()} Promise Reject. Error: ${err}`))
   })
@@ -34,9 +34,11 @@ function updateUserInfo(user) {
   $("user.email").innerHTML = user && user.profile.email[0] || '';
 }
 
-function createCallbackFn(name) {
-  return function(err, user) {
-    const msg = err ? `with err: ${err}` : `without error.`;
-    console.log(`${name.toUpperCase()} callback is called ${msg}. \nUser:  ${JSON.stringify(user)}`);
+function createDeferFunc(name) {
+  return function(user) {
+    return new Promise((resolve) => {
+      console.log('Defer function is called, will resolve after 3s');
+      setTimeout(() => resolve(), 3000);
+    });
   }
 }
