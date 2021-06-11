@@ -1,0 +1,5 @@
+{
+  "@realmjs/account-client": "^1.0.0",
+  "@realmjs/account-server": "^1.0.0"
+}
+
