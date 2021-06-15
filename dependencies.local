@@ -1,5 +1,6 @@
 {
   "@realmjs/account-client": "^1.0.0",
-  "@realmjs/account-server": "^1.0.0"
+  "@realmjs/account-restapi": "^1.0.0",
+  "@realmjs/account-dynamodb-driver": "^1.0.0"
 }
 

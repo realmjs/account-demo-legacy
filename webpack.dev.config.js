@@ -22,6 +22,6 @@ module.exports = {
       contentBase: path.join(__dirname, 'client'),
       publicPath: "/assets/",
       historyApiFallback: true,
-      port: 3200,
+      port: 3110,
     }
 }
